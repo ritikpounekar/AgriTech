@@ -11,6 +11,12 @@ A full-stack agricultural technology web application built with React + Vite (fr
 New accounts require a name, unique enrollment number, email address, and password.
 Enrollment numbers are stored uppercase and included in the authenticated user profile.
 
+## Demo
+
+**UI preview:** https://agritech-demo.embarko.app
+
+This temporary preview is available until **October 29, 2026 at 19:03 IST** unless it is claimed. It showcases the frontend; login, registration, and data features require a configured backend and MongoDB, which are not included in this hosted preview. No shared email or password is provided—never publish personal account credentials in this repository.
+
 ### 1. Server Setup
 
 ```bash
