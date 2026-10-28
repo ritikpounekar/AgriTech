@@ -49,6 +49,7 @@ export default function AdminUsers() {
                 <tr>
                   <th>#</th>
                   <th>Name</th>
+                  <th>Enrollment Number</th>
                   <th>Email</th>
                   <th>Role</th>
                   <th>Joined</th>
@@ -60,6 +61,7 @@ export default function AdminUsers() {
                   <tr key={u._id}>
                     <td>{i + 1}</td>
                     <td>{u.name}</td>
+                    <td>{u.enrollmentNumber || '-'}</td>
                     <td>{u.email}</td>
                     <td>
                       <Badge bg={u.role === 'admin' ? 'danger' : 'success'}>

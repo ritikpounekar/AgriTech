@@ -8,6 +8,9 @@ A full-stack agricultural technology web application built with React + Vite (fr
 - Node.js v18+
 - MongoDB (local or Atlas)
 
+New accounts require a name, unique enrollment number, email address, and password.
+Enrollment numbers are stored uppercase and included in the authenticated user profile.
+
 ### 1. Server Setup
 
 ```bash

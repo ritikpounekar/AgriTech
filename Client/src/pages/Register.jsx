@@ -6,7 +6,7 @@ import { useAuth } from '../context/AuthContext';
 import { authService } from '../services/api';
 
 export default function Register() {
-  const [form, setForm] = useState({ name: '', email: '', password: '', confirmPassword: '' });
+  const [form, setForm] = useState({ name: '', enrollmentNumber: '', email: '', password: '', confirmPassword: '' });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const { login } = useAuth();
@@ -17,12 +17,17 @@ export default function Register() {
   const handleSubmit = async e => {
     e.preventDefault();
     setError('');
-    if (!form.name || !form.email || !form.password) { setError('All fields are required.'); return; }
+    if (!form.name || !form.enrollmentNumber || !form.email || !form.password) { setError('All fields are required.'); return; }
     if (form.password.length < 6) { setError('Password must be at least 6 characters.'); return; }
     if (form.password !== form.confirmPassword) { setError('Passwords do not match.'); return; }
     setLoading(true);
     try {
-      const res = await authService.register({ name: form.name, email: form.email, password: form.password });
+      const res = await authService.register({
+        name: form.name,
+        enrollmentNumber: form.enrollmentNumber,
+        email: form.email,
+        password: form.password,
+      });
       login(res.data.user, res.data.token);
       navigate('/dashboard', { replace: true });
     } catch (err) {
@@ -46,6 +51,10 @@ export default function Register() {
           <Form.Group className="mb-3">
             <Form.Label>Full Name</Form.Label>
             <Form.Control id="reg-name" type="text" name="name" value={form.name} onChange={handleChange} placeholder="John Farmer" required />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Enrollment Number</Form.Label>
+            <Form.Control id="reg-enrollment" type="text" name="enrollmentNumber" value={form.enrollmentNumber} onChange={handleChange} placeholder="e.g. EN24IT3010095" maxLength={50} required />
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Email Address</Form.Label>

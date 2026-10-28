@@ -9,6 +9,16 @@ const userSchema = new mongoose.Schema({
     minlength: 2,
     maxlength: 100,
   },
+  enrollmentNumber: {
+    type: String,
+    required: [true, 'Enrollment number is required'],
+    trim: true,
+    uppercase: true,
+    minlength: 3,
+    maxlength: 50,
+    unique: true,
+    sparse: true,
+  },
   email: {
     type: String,
     required: [true, 'Email is required'],

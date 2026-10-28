@@ -42,6 +42,11 @@ export default function Dashboard() {
         <div className="page-header mb-4">
           <h1>👋 Welcome back, {user?.name}!</h1>
           <p className="mb-0" style={{ opacity: 0.85 }}>Here's an overview of your farming activities.</p>
+          {user?.enrollmentNumber && (
+            <p className="mb-0 mt-2" style={{ opacity: 0.85 }}>
+              Enrollment Number: {user.enrollmentNumber}
+            </p>
+          )}
         </div>
 
         {loading ? (
